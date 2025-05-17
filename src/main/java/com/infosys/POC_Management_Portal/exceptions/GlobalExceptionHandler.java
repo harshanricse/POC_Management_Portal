@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
     {
         ErrorMessage error = new ErrorMessage();
         error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-        error.setMessage("exception occured, please check ");
+        error.setMessage("Oops! something went wrong, please try again!");
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
