@@ -27,6 +27,7 @@ public class POC {
     @Column(nullable = false)
     private String projectName;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
     @Column(nullable = false)
     private String keyLearnings;

@@ -3,39 +3,51 @@ package com.infosys.POC_Management_Portal.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.infosys.POC_Management_Portal.models.POC;
 import com.infosys.POC_Management_Portal.models.Status;
+import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
-
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 public class POCDto {
-    @NotNull
+    @NotNull(message="pocObjective should be present, please check")
     private String pocObjective;
+
     @JsonFormat(pattern = "dd-MM-yyyy")
-    @NotNull
+    @NotNull(message="startDate should be present, please check")
     private LocalDate startDate;
-    @NotNull
+
+    @NotNull(message="{endDate should be present, please check}")
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate endDate;
-    @NotNull
+
+    @NotNull(message="{technology should be present, please check}")
     private String technology;
-    @NotNull
+
+    @NotNull(message="{projectName should be present, please check}")
     private String projectName;
-    @NotNull
+
+    @NotNull(message="status should be present, please check")
     private Status status;
-    @NotNull
+
+    @NotNull(message="keyLearnings should be present, please check")
     private String keyLearnings;
-    @NotNull
+
+    @NotNull(message="spocName should be present, please check")
     private String spocName;
-    @NotNull
+
+    @NotNull(message="spocEmail should be present, please check")
+    @Email(message = "Please enter valid email")
     private String spocEmail;
-    @NotNull
+
+    @NotNull(message="spocContact should be present, please check")
     private String spocContact;
-    @NotNull
+
+    @NotNull(message="codeLocation should be present, please check")
     private String codeLocation;
+
     private String reviewedBy;
     private String toBeReviewedBy;
 
