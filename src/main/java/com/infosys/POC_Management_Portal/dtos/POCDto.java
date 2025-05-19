@@ -19,14 +19,14 @@ public class POCDto {
     @NotNull(message="startDate should be present, please check")
     private LocalDate startDate;
 
-    @NotNull(message="{endDate should be present, please check}")
+    @NotNull(message="endDate should be present, please check")
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate endDate;
 
-    @NotNull(message="{technology should be present, please check}")
+    @NotNull(message="technology should be present, please check")
     private String technology;
 
-    @NotNull(message="{projectName should be present, please check}")
+    @NotNull(message="projectName should be present, please check")
     private String projectName;
 
     @NotNull(message="status should be present, please check")
