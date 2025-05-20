@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "282a9ac2-b832-4b64-9a42-fa2dce0b4ff3",
+		"name": "POCManagementSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4951521",
+		"_collection_link": "https://spring-certification.postman.co/workspace/Spring-Certification-Workspace~ebdf128d-1834-4b70-80ab-b94bef7f82cd/collection/4951521-282a9ac2-b832-4b64-9a42-fa2dce0b4ff3?action=share&source=collection_link&creator=4951521"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pocObjective\": \"sample objective2\",\r\n    \"startDate\": \"20-02-2025\",\r\n    \"endDate\": \"20-04-2025\",\r\n    \"technology\": \"ReactJS\",\r\n    \"projectName\": \"adidas\",\r\n    \"status\": \"IN_PROGRESS\",\r\n    \"keyLearnings\": \"don't repeat same mistake again\",\r\n    \"spocName\": \"harsha\",\r\n    \"spocEmail\": \"harsha123@gmail.com\",\r\n    \"spocContact\": \"8500736467\",\r\n    \"codeLocation\": \"https://github.nike.com/pocmanagment\",\r\n    \"reviewedBy\": \"banu\",\r\n    \"toBeReviewedBy\": \"bikram\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/poc/create"
+			},
+			"response": []
+		},
+		{
+			"name": "create TC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pocObjective\": \"sample objective2\",\r\n    \"startDate\": \"20-02-2025\",\r\n    \"endDate\": \"20-04-2025\",\r\n    \"technology\": \"springBoot\",\r\n    \"keyLearnings\": \"don't repeat same mistake again\",\r\n    \"spocName\": \"harsha\",\r\n    \"spocEmail\": \"harsha123@gmail.com\",\r\n    \"spocContact\": \"8500736467\",\r\n    \"codeLocation\": \"https://github.nike.com/pocmanagment\",\r\n    \"reviewedBy\": \"banu\",\r\n    \"toBeReviewedBy\": \"bikram\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/poc/create"
+			},
+			"response": []
+		},
+		{
+			"name": "listAllPOC's",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/poc"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/poc/3"
+			},
+			"response": []
+		},
+		{
+			"name": "filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/poc/filterby?technology=ReactJS",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"poc",
+						"filterby"
+					],
+					"query": [
+						{
+							"key": "technology",
+							"value": "ReactJS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePOC",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pocObjective\": \"sample objective2\",\r\n    \"startDate\": \"20-02-2025\",\r\n    \"endDate\": \"20-04-2025\",\r\n    \"technology\": \"springBoot\",\r\n    \"projectName\": \"rei\",\r\n    \"status\": \"IN_PROGRESS\",\r\n    \"keyLearnings\": \"don't repeat same mistake again\",\r\n    \"spocName\": \"harsha\",\r\n    \"spocEmail\": \"harsha123@gmail.com\",\r\n    \"spocContact\": \"8500736467\",\r\n    \"codeLocation\": \"https://github.nike.com/pocmanagment\",\r\n    \"reviewedBy\": \"banu\",\r\n    \"toBeReviewedBy\": \"bikram\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/poc/2"
+			},
+			"response": []
+		}
+	]
+}
