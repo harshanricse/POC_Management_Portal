@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface POCRepository extends JpaRepository<POC,Long> {
-    List<POC> findAllByStatusOrTechnologyIgnoreCaseOrProjectNameIgnoreCase(Status status, String technology, String projectName);
+    //List<POC> findAllByStatusOrTechnologyIgnoreCaseOrProjectNameIgnoreCase(Status status, String technology, String projectName);
 }

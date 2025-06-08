@@ -12,9 +12,15 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class POCDto {
-    @NotNull(message="pocObjective should be present, please check")
-    private String pocObjective;
+    @NotNull(message="name for poc should be present, please check")
+    private String name;
 
+    @NotNull(message="description for poc should be present, please check")
+    private String description;
+
+    @NotNull(message="createdBy for poc should be present, please check")
+    private String createdBy;
+    
     @JsonFormat(pattern = "dd-MM-yyyy")
     @NotNull(message="startDate should be present, please check")
     private LocalDate startDate;
@@ -23,17 +29,8 @@ public class POCDto {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate endDate;
 
-    @NotNull(message="technology should be present, please check")
-    private String technology;
-
-    @NotNull(message="projectName should be present, please check")
-    private String projectName;
-
-    @NotNull(message="status should be present, please check")
-    private Status status;
-
-    @NotNull(message="keyLearnings should be present, please check")
-    private String keyLearnings;
+    @NotNull(message="clientName should be present, please check")
+    private String clientName;
 
     @NotNull(message="spocName should be present, please check")
     private String spocName;
@@ -45,28 +42,44 @@ public class POCDto {
     @NotNull(message="spocContact should be present, please check")
     private String spocContact;
 
+    private String uploadDeck;
+
     @NotNull(message="codeLocation should be present, please check")
     private String codeLocation;
 
-    private String reviewedBy;
-    private String toBeReviewedBy;
+    private String remarks;
+
+    private String category;
+
+    @NotNull(message="status should be present, please check")
+    private Status status;
+
+    @NotNull(message="keyLearnings should be present, please check")
+    private String keyLearnings;
+
+    private String environmentDetails;
+    private String pocReviewedBy;
 
     public static POC preparePOCEntity(POCDto pocDto)
     {
         POC pocEntity = new POC();
-        pocEntity.setPocObjective(pocDto.getPocObjective());
+        pocEntity.setName(pocDto.getName());
+        pocEntity.setDescription(pocDto.getDescription());
+        pocEntity.setCreatedBy(pocDto.getCreatedBy());
         pocEntity.setStartDate(pocDto.getStartDate());
         pocEntity.setEndDate(pocDto.getEndDate());
-        pocEntity.setTechnology(pocDto.getTechnology());
-        pocEntity.setProjectName(pocDto.getProjectName());
-        pocEntity.setStatus(pocDto.getStatus());
-        pocEntity.setKeyLearnings(pocDto.getKeyLearnings());
+        pocEntity.setClientName(pocDto.getClientName());
         pocEntity.setSpocName(pocDto.getSpocName());
         pocEntity.setSpocEmail(pocDto.getSpocEmail());
         pocEntity.setSpocContact(pocDto.getSpocContact());
+        pocEntity.setUploadDeck(pocDto.getUploadDeck());
         pocEntity.setCodeLocation(pocDto.getCodeLocation());
-        pocEntity.setReviewedBy(pocDto.getReviewedBy());
-        pocEntity.setToBeReviewedBy(pocDto.getToBeReviewedBy());
+        pocEntity.setRemarks(pocDto.getRemarks());
+        pocEntity.setCategory(pocDto.getCategory());
+        pocEntity.setStatus(pocDto.getStatus());
+        pocEntity.setKeyLearnings(pocDto.getKeyLearnings());
+        pocEntity.setEnvironmentDetails(pocDto.getEnvironmentDetails());
+        pocEntity.setPocReviewedBy(pocDto.getPocReviewedBy());
         return pocEntity;
     }
 }

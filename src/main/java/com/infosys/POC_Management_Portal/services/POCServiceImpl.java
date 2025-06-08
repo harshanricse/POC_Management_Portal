@@ -39,12 +39,12 @@ public class POCServiceImpl implements POCService{
 
     @Override
     public List<POCDto> FetchFilteredPocs(Status status, String technology, String projectName) {
-        List<POC> pocList = pocRepository.findAllByStatusOrTechnologyIgnoreCaseOrProjectNameIgnoreCase(status, technology, projectName);
-        List<POCDto> pocDtoList = new ArrayList<>();
-        for(POC poc: pocList){
-            pocDtoList.add(POC.preparePOCDto(poc));
-        }
-        return pocDtoList;
+//        List<POC> pocList = pocRepository.findAllByStatusOrTechnologyIgnoreCaseOrProjectNameIgnoreCase(status, technology, projectName);
+//        List<POCDto> pocDtoList = new ArrayList<>();
+//        for(POC poc: pocList){
+//            pocDtoList.add(POC.preparePOCDto(poc));
+//        }
+        return null;//pocDtoList;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class POCServiceImpl implements POCService{
             throw new POCNOTFoundException(env.getProperty("poc.not.found").toString());
         }
         if(pocUpdateDto.getPocObjective()!=null){
-            poc.setPocObjective(pocUpdateDto.getPocObjective());
+            poc.setName(pocUpdateDto.getPocObjective());
         }
         if(pocUpdateDto.getStartDate()!=null){
             poc.setStartDate(pocUpdateDto.getStartDate());
@@ -62,12 +62,7 @@ public class POCServiceImpl implements POCService{
         if(pocUpdateDto.getEndDate()!=null){
             poc.setEndDate(pocUpdateDto.getEndDate());
         }
-        if(pocUpdateDto.getTechnology()!=null){
-            poc.setTechnology(pocUpdateDto.getTechnology());
-        }
-        if(pocUpdateDto.getProjectName()!=null){
-            poc.setProjectName(pocUpdateDto.getProjectName());
-        }
+
         if(pocUpdateDto.getStatus()!=null){
             poc.setStatus(pocUpdateDto.getStatus());
         }
@@ -85,12 +80,6 @@ public class POCServiceImpl implements POCService{
         }
         if(pocUpdateDto.getCodeLocation()!=null){
             poc.setCodeLocation(pocUpdateDto.getCodeLocation());
-        }
-        if(pocUpdateDto.getReviewedBy()!=null){
-            poc.setToBeReviewedBy(pocUpdateDto.getToBeReviewedBy());
-        }
-        if(pocUpdateDto.getToBeReviewedBy()!=null){
-            poc.setToBeReviewedBy(pocUpdateDto.getToBeReviewedBy());
         }
         return  POC.preparePOCDto(pocRepository.save(poc));
     }
