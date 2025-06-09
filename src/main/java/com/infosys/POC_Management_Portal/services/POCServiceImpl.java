@@ -85,6 +85,15 @@ public class POCServiceImpl implements POCService{
     }
 
     @Override
+    public POCDto getPOCById(Long id) {
+        Optional<POC> poc = pocRepository.findById(id);
+        if(poc.isEmpty()){
+            throw new POCNOTFoundException(env.getProperty("poc.not.found").toString());
+        }
+        return POC.preparePOCDto(poc.get());
+    }
+
+    @Override
     public void deletePOC(Long id) {
         Optional<POC> poc = pocRepository.findById(id);
         if(poc.isEmpty()){

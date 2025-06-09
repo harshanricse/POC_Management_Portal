@@ -27,6 +27,11 @@ public class PocController {
         List<POCDto> pocDtos = pocService.getAllPOCs();
         return new ResponseEntity<>(pocDtos, HttpStatus.OK);
     }
+    @GetMapping("/{Id}")
+    public ResponseEntity<POCDto> getPOCById(@PathVariable("Id") Long id){
+        POCDto pocDto = pocService.getPOCById(id);
+        return new ResponseEntity(pocDto, HttpStatus.OK);
+    }
     @GetMapping("/filterby")
     public List<POCDto> FetchProducts(
             @RequestParam(required = false) Status status, @RequestParam(required = false) String technology, @RequestParam(required = false) String projectName) {

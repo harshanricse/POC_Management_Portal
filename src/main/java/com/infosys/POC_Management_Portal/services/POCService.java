@@ -11,6 +11,7 @@ public interface POCService {
     List<POCDto> getAllPOCs();
     List<POCDto> FetchFilteredPocs(Status status,String technology,String projectName);
     POCDto updatePOC(Long id, POCUpdateDto pocUpdateDto);
+    POCDto getPOCById(Long id);
     void deletePOC(Long id);
 
 }
